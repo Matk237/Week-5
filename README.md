@@ -21,3 +21,17 @@
 | 4 | Manual Check | URL structure shows /login/index.php, /course/index.php, /mod/forum/discuss.php.<br>SSO at cas.unikl.edu.my.<br>Mobile app on Google Play. | Login page is public = brute force risk.<br>SSO is a single point of failure.<br>Mobile app adds attack surface. | Add 2FA.<br>Rate limit login attempts.<br>Audit subdomains. |
 | 5 | Overall | Public VLE with Moodle, nginx server, Malaysian hosting.<br>Subdomains: vle.unikl.edu.my, vle2.unikl.edu.my, cas.unikl.edu.my. | Large attack surface.<br>Moodle plugins may be outdated.<br>Subdomains may differ in security. | Regular vulnerability scans.<br>Keep subdomains patched.<br>Implement WAF. |
 
+
+## Tools Used
+
+- WHOIS: https://who.is/whois/unikl.edu.my
+- DNS: https://who.is/dns/unikl.edu.my
+- WhatWeb: https://whatweb.net/
+- Target: https://vle.unikl.edu.my
+
+## Key Takeaways
+
+- Moodle + nginx = common stack, well-documented attack vectors
+- WHOIS privacy is good, but DNS exposes internal structure
+- Public login page needs 2FA and rate limiting
+- Multiple subdomains = more to secure
